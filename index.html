@@ -10,6 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Mouse+Memoirs&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       * {
@@ -18,9 +24,16 @@
         --opacity-1: #40356b3e;
       }
 
-      .mouse-memoirs-regular {
+      .mouse-memoirs-font {
         font-family: "Mouse Memoirs", sans-serif;
         font-weight: 400;
+        font-style: normal;
+      }
+
+      .roboto-mono-font {
+        font-family: "Roboto Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 800;
         font-style: normal;
       }
 
@@ -40,24 +53,6 @@
         box-shadow: #1d1243 0px 1px 4px, #1d1243 0px 0px 0px 3px;
       }
 
-      .gradiant {
-        background-image: linear-gradient(to bottom, #fe71fe, #c29af9, #8450c0);
-      }
-
-      .gradiant-2 {
-        background: linear-gradient(
-          180deg,
-          rgba(26, 4, 58, 0.75),
-          rgba(21, 18, 120, 0.75) 70.31%,
-          rgba(43, 22, 119, 0.75)
-        );
-      }
-      .menu-background {
-        background: linear-gradient(180deg, #344aba, rgba(0, 20, 121, 0.83));
-        box-shadow: inset 0 0.6rem 0 0.8rem #2463ff,
-          inset 0 -0.8rem 0 0.4rem #140e66;
-      }
-
       .gradiant-text {
         background: linear-gradient(180deg, #67b6ff 16.42%, #fff);
         background-clip: text;
@@ -67,121 +62,47 @@
     </style>
   </head>
   <body
-    class="max-w-screen min-h-screen w-full bg-[#333333] flex relative bg-[url('/public/svgs/background-mobile.svg')] sm:bg-[url('/public/svgs/background-tablet.svg')] lg:bg-[url('/public/svgs/background-desktop.svg')] bg-no-repeat bg-cover"
+    class="max-w-screen min-h-screen w-full bg-[#333333] flex relative bg-[url('/public/background-mobile.svg')] sm:bg-[url('/public/background-tablet.svg')] lg:bg-[url('/public/background-desktop.svg')] bg-no-repeat bg-cover"
   >
     <div
       id="app"
-      class="max-w-screen-lg w-full flex-1 mx-auto flex flex-col custom-font mouse-memoirs-regular"
+      class="max-w-screen-lg w-full flex-1 mx-auto flex flex-col mouse-memoirs-font p-2"
     >
-      <div
-        id="model"
-        class="flex-1 flex items-center justify-center p-4 hidden"
+      <header
+        class="text-white text-3xl sm:text-4xl lg:text-5xl flex items-center justify-between pb-2 sm:pb-4 py-6 sm:py-4 lg:py-3"
       >
-        <div
-          id="background"
-          class="bg-gradient-to-b from-[#2f7ed9] to-[#191b7c] max-w-lg max-h-[512px] w-full h-full rounded-full blueShadow flex flex-col items-center gap-8"
-        >
-          <h1><img src="./public/svgs/logo.svg" alt="" /></h1>
-          <button
-            class="gradiant size-40 rounded-full blueShadow flex items-center justify-center"
+        <h1>goType</h1>
+        <div class="flex items-center justify-center space-x-3">
+          <div
+            id="bar"
+            class="bg-white rounded-full w-24 h-3 sm:w-36 sm:h-4 lg:w-56 lg:h-5 overflow-hidden p-0.5"
           >
-            <img src="./public/svgs/icon-play.svg" alt="" />
-          </button>
+            <div
+              id="filler"
+              class="h-full w-1/2 bg-[#1b0644] rounded-full"
+            ></div>
+          </div>
           <button
-            class="blueShadow bg-[#2f7ed9] text-white capitalize p-4 px-8 text-2xl sm:text-3xl lg:text-4xl rounded-full"
+            id="start-button"
+            class="text-xl sm:text-2xl lg:text-3xl border-white border-2 rounded-lg px-4 sm:px-6 lg:px-8"
           >
-            how to play
+            start
           </button>
         </div>
-      </div>
-
-      <main class="flex-1 pt-6 sm:pt-8 relative">
-        <header
-          class="text-white p-2 sm:p-3 lg:p-4 py-6 sm:py-7 lg:py-8 flex items-center justify-between sm:space-x-8"
-        >
-          <div
-            class="flex items-center justify-between space-x-2 sm:space-x-6 lg:space-x-8"
-          >
-            <button
-              class="size-12 sm:size-16 lg:size-24 rounded-full flex items-center justify-center gradiant"
-            >
-              <img
-                class="w-2/4"
-                src="./public/svgs/icon-menu.svg"
-                alt="icon-menu"
-              />
-            </button>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl capitalize font-bold">
-              goType
-            </h1>
-          </div>
-
-          <div
-            class="flex items-center justify-between space-x-2 sm:space-x-4 px-2"
-          >
-            <div
-              class="bg-white border-white rounded-full border-4 sm:border-8 w-28 h-4 sm:w-48 sm:h-6 lg:w-64 lg:h-8 overflow-hidden"
-            >
-              <div
-                id="filler"
-                class="bg-[#1b0644] w-1/2 h-full rounded-full"
-              ></div>
-            </div>
-            <div
-              class="size-8 sm:size-10 lg:size-16 flex items-center justify-center"
-            >
-              <img
-                class="object-center"
-                src="./public/svgs/icon-heart.svg"
-                alt="icon-heart"
-              />
-            </div>
-          </div>
-        </header>
+      </header>
+      <main class="flex-1 flex flex-col">
         <div
-          tabindex="0"
           id="input-area"
-          class="group mt-8 p-4 rounded-lg flex items-center justify-center flex-col lg:flex-row overflow-hidden relative outline-none"
-        >
-          <div
-            class="flex items-center justify-center space-x-2 sm:space-x-3 lg:space-x-4"
-          ></div>
-          <div
-            class="flex items-center justify-center space-x-2 sm:space-x-3 lg:space-x-4 sm:pl-3 lg:pl-4"
-          ></div>
-          <p
-            id="start-end"
-            class="group-focus:hidden absolute inset-0 backdrop-blur-sm flex items-center justify-center text-6xl capitalize bg-white/50 backdrop-blur-xl"
-          >
-            click to start
-          </p>
-        </div>
+          class="w-full max-w-screen-sm text-white text-2xl roboto-mono-font text-center p-2 py-10 sm;py-5 lg:py-4 mx-auto mt-8 sm:mt-9 lg:mt-10 rounded-lg border-white border-2 relative"
+        ><p class="absolute inset-0 bg-white/50 backdrop-blur-sm text-[#1b0644] text-xl sm:text-3xl lg:text-5xl capitalize flex items-center justify-center hidden">restart</p></div>
         <div
-          id="keyboard-wraper"
-          class="pt-12 flex items-center justify-center"
-        >
-          <div
-            id="keyboard"
-            class="border-[#42a5ee] border-2 sm:border-4 space-y-1 lg:space-y-2 flex flex-col items-center justify-center p-3 rounded-xl"
-          ></div>
-        </div>
-        <div
-          id="menu"
-          class="gradiant-2 absolute inset-0 flex items-center justify-center backdrop-blur hidden"
-        >
-          <article
-            class="menu-background max-w-2xl w-full h-[446px] rounded-[7.2rem] p-4 m-4"
-          >
-            <h1
-              class="gradiant-text uppercase text-9xl text-white text-center -translate-y-20"
-            >
-              menu
-            </h1>
-          </article>
-        </div>
+          id="keyboard"
+          class="border-white border-2 rounded-lg mt-8 sm:mt-9 lg:mt-10 max-w-lg w-full mx-auto py-1 overflow-hidden space-y-1"
+        ></div>
       </main>
     </div>
-    <script src="./scripts/UiComponent.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/logic.js"></script>
     <script src="./scripts/main.js"></script>
   </body>
 </html>
